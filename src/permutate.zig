@@ -1,7 +1,7 @@
 const std = @import("std");
 const testing = std.testing;
 
-pub fn main() void {}
+pub fn main() void { }
 
 inline fn swap(comptime T: type, a: *T, b: *T) void {
     const tmp = a.*;
@@ -108,9 +108,9 @@ test "swap u32 in slice" {
     try testing.expectEqual(exp_b, s[1]);
 }
 
-test "generates 13! perms" {
-    var str = "0123456789abc".*;
-    const expected: usize = 6227020800;
+test "generates 10! perms" {
+    var str = "0123456789".*;
+    const expected: usize = 3628800;
     var count: usize = 0;
     var pit = try permutate(u8, str[0..]);
 
