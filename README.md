@@ -27,6 +27,8 @@ pub fn main() !void {
     // .permute() will return an error if the input list is too long.
     // The number of permutations are `N factorial` so unrealisticly high numbers are reached pretty quickly
     var iterator = try perm.permutate(u32, &numbers);
+
+    // the .next() function returns the next permutation, and finally null when all iterations have been returned.
     while (iterator.next()) |p| {
         std.debug.print("{any}\n", .{p});
     }
@@ -48,3 +50,5 @@ Outputs:
 -----------
 { 5, 3, 1 }
 ```
+
+Notice that the original array `numbers` mutated during iteration. This is how allocations are avoided, doing the iterations in-place tracking the state of the iterator.
