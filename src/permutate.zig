@@ -1,7 +1,7 @@
 const std = @import("std");
 const testing = std.testing;
 
-pub fn main() void { }
+pub fn main() void {}
 
 inline fn swap(comptime T: type, a: *T, b: *T) void {
     const tmp = a.*;
@@ -10,7 +10,6 @@ inline fn swap(comptime T: type, a: *T, b: *T) void {
 }
 
 pub const PermutationError = error{ListTooLong};
-
 
 /// Returns an iterator that iterates all the permutations of `list`.
 /// `permutate(u8, slice_of_bytes)`
@@ -27,7 +26,7 @@ pub fn permutate(comptime T: type, list: []T) PermutationError!PermutationIterat
         .first = true,
     };
 }
- 
+
 pub fn PermutationIterator(comptime T: type) type {
     return struct {
         list: []T,
@@ -114,10 +113,9 @@ test "generates 10! perms" {
     var count: usize = 0;
     var pit = try permutate(u8, str[0..]);
 
-    while(pit.next()) |_| {
+    while (pit.next()) |_| {
         count += 1;
     }
 
     try testing.expectEqual(expected, count);
-
 }

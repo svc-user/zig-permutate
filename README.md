@@ -51,4 +51,4 @@ Outputs:
 { 5, 3, 1 }
 ```
 
-Notice that the original array `numbers` mutated during iteration. This is how allocations are avoided, doing the iterations in-place tracking the state of the iterator.
+Notice that the original array `numbers` mutated during iterating the iterator. This is how allocations are avoided, doing the iterations in-place while tracking the state in the `PermutationIterator(T)`.
