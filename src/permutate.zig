@@ -20,7 +20,7 @@ pub fn permutate(comptime T: type, list: []T) PermutationError!PermutationIterat
 
     return PermutationIterator(T){
         .list = list[0..],
-        .size = @intCast(u4, list.len),
+        .size = @intCast(list.len),
         .state = [_]u4{0} ** 16,
         .stateIndex = 0,
         .first = true,
