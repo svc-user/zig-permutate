@@ -77,7 +77,7 @@ test "permutate []u8" {
 test "list too long" {
     var input = [_]u8{0} ** 17;
 
-    var pit = permutate(u8, &input);
+    const pit = permutate(u8, &input);
 
     try testing.expectError(PermutationError.ListTooLong, pit);
 }
